@@ -35,6 +35,10 @@ var getMaxElement = function (arr) {
   return maxElement;
 };
 
+var getRandomNumber = function (hue, lightness) {
+  return 'hsl(' + hue + ',' + Math.round(Math.random() * 100) + '%' + ',' + lightness + '%' + ')';
+};
+
 window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, CLOUD_X + CLOUD_GAP, CLOUD_Y + CLOUD_GAP, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
@@ -52,16 +56,9 @@ window.renderStatistics = function (ctx, names, times) {
 
     ctx.fillStyle = FONT_COLOR;
     ctx.fillText(names[i], CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - GAP);
-    ctx.fillText(Math.round(times[i]), CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - barTopPoint - GAP + (barHeight - currentHeight), BAR_WIDTH, currentHeight);
 
-    if (names[i] === YOU) {
-      ctx.fillStyle = YOU_BAR_COLOR;
-    } else {
-      var getRandomNumber = function (hue, lightness) {
-        return 'hsl(' + hue + ',' + Math.round(Math.random() * 100) + '%' + ',' + lightness + '%' + ')';
-      };
-      ctx.fillStyle = getRandomNumber(barHueColor, barLightnessColor);
-    }
+    ctx.fillText(Math.round(times[i]), CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - barTopPoint - GAP + (barHeight - currentHeight), BAR_WIDTH, currentHeight);
+    ctx.fillStyle = names[i] === YOU ? YOU_BAR_COLOR : getRandomNumber(barHueColor, barLightnessColor);
 
     ctx.fillRect(CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - barTopPoint + (barHeight - currentHeight), BAR_WIDTH, currentHeight);
   }
