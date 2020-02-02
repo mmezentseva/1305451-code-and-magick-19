@@ -39,7 +39,7 @@ var generateWizards = function (number) {
 
 var wizards = generateWizards(wizardsNumber);
 
-var renderWizard = function (wizard) {
+var renderWizardTemplate = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
@@ -49,13 +49,13 @@ var renderWizard = function (wizard) {
   return wizardElement;
 };
 
-var addFragment = function () {
+var renderWizards = function () {
   var fragment = document.createDocumentFragment();
   for (var i = 0; i < wizards.length; i++) {
-    fragment.appendChild(renderWizard(wizards[i]));
+    fragment.appendChild(renderWizardTemplate(wizards[i]));
   }
   similarListElement.appendChild(fragment);
 };
-addFragment();
+renderWizards();
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
