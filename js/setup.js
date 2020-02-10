@@ -117,31 +117,22 @@ setupClose.addEventListener('keydown', function (evt) {
 });
 
 var coatColorChangedHandler = function () {
-  var getRandomColorFromArray = function (color) {
-    return color[Math.floor(Math.random() * color.length)];
-  };
-  setupCoatColor.style.fill = getRandomColorFromArray(WIZARD_FIREBALLS);
-  coatColorInput.value = getRandomColorFromArray(WIZARD_FIREBALLS);
+  setupCoatColor.style.fill = getRandomElementFromArray(WIZARD_FIREBALLS);
+  coatColorInput.value = getRandomElementFromArray(WIZARD_FIREBALLS);
 };
 setupCoatColor.addEventListener('click', coatColorChangedHandler);
 
 
 var eyesColorChangedHandler = function () {
-  var getRandomColorFromArray = function (color) {
-    return color[Math.floor(Math.random() * color.length)];
-  };
-  setupEyesColor.style.fill = getRandomColorFromArray(WIZARD_FIREBALLS);
-  eyesColorInput.value = getRandomColorFromArray(WIZARD_FIREBALLS);
+  setupEyesColor.style.fill = getRandomElementFromArray(WIZARD_FIREBALLS);
+  eyesColorInput.value = getRandomElementFromArray(WIZARD_FIREBALLS);
 };
 setupEyesColor.addEventListener('click', eyesColorChangedHandler);
 
 
 var fireballChangedHandler = function () {
-  var getRandomColorFromArray = function (color) {
-    return color[Math.floor(Math.random() * color.length)];
-  };
-  setupFireballColor.style.background = getRandomColorFromArray(WIZARD_FIREBALLS);
-  fireballColorInput.value = getRandomColorFromArray(WIZARD_FIREBALLS);
+  setupFireballColor.style.background = getRandomElementFromArray(WIZARD_FIREBALLS);
+  fireballColorInput.value = getRandomElementFromArray(WIZARD_FIREBALLS);
 };
 setupFireballColor.addEventListener('click', fireballChangedHandler);
 

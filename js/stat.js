@@ -35,7 +35,7 @@ var getMaxElement = function (arr) {
   return maxElement;
 };
 
-var getRandomNumber = function (hue, lightness) {
+var getRandomBarColor = function (hue, lightness) {
   return 'hsl(' + hue + ',' + Math.round(Math.random() * 100) + '%' + ',' + lightness + '%' + ')';
 };
 
@@ -58,7 +58,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(names[i], CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - GAP);
 
     ctx.fillText(Math.round(times[i]), CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - barTopPoint - GAP + (barHeight - currentHeight), BAR_WIDTH, currentHeight);
-    ctx.fillStyle = names[i] === YOU ? YOU_BAR_COLOR : getRandomNumber(barHueColor, barLightnessColor);
+    ctx.fillStyle = names[i] === YOU ? YOU_BAR_COLOR : getRandomBarColor(barHueColor, barLightnessColor);
 
     ctx.fillRect(CLOUD_X + BAR_GAP + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - barTopPoint + (barHeight - currentHeight), BAR_WIDTH, currentHeight);
   }
