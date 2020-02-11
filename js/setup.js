@@ -77,8 +77,12 @@ var setupFireballColor = document.querySelector('.setup-fireball-wrap');
 var fireballColorInput = setupFireballColor.querySelector('input[name="fireball-color"]');
 
 var popupEscPressHandler = function (evt) {
-  if (evt.key === ESC_KEY) {
-    closePopup();
+  if (userNameInput === document.activeElement) {
+    openPopup();
+  } else {
+    if (evt.key === ESC_KEY) {
+      closePopup();
+    }
   }
 };
 
@@ -100,10 +104,6 @@ setupOpenIcon.addEventListener('keydown', function (evt) {
   if (evt.key === ENTER_KEY) {
     openPopup();
   }
-});
-
-userNameInput.addEventListener('blue', function () {
-  document.removeEventListener('keydown', popupEscPressHandler);
 });
 
 setupClose.addEventListener('click', function () {
