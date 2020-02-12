@@ -77,12 +77,8 @@ var setupFireballColor = document.querySelector('.setup-fireball-wrap');
 var fireballColorInput = setupFireballColor.querySelector('input[name="fireball-color"]');
 
 var popupEscPressHandler = function (evt) {
-  if (userNameInput === document.activeElement) {
-    openPopup();
-  } else {
-    if (evt.key === ESC_KEY) {
-      closePopup();
-    }
+  if (evt.key === ESC_KEY && userNameInput !== document.activeElement) {
+    closePopup();
   }
 };
 
